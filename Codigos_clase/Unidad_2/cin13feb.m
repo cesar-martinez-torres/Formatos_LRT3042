@@ -13,4 +13,4 @@ Robot1.teach
 %% Evaluando la cinematica directa
 syms q1 q2 q3
 c1=[q1 q2 q3]
-conf1=Robot1.fkine(c1)
+conf1=Robot1.fkine(c1,'deg')
