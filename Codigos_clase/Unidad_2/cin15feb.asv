@@ -1,0 +1,15 @@
+%% Cinematica 15 febrero
+close all
+clear all
+l1=2
+l4=100;
+%([Rotaci�n en z traslaci�n en z traslaci�n en x rotaci�n en x tipo de articulaci�n])
+A(1)= Link([0 l1 0 0 0]); %Generar cada una de las articulaciones 
+A(2)= Link([pi/2 0 0 pi/2 0]);%th,d,a,alpha, tipo art; 0=rot 1=pris
+A(3)= Link([0 0 0 0 1]);
+A(3).qlim = [0 100];
+Robot1= SerialLink(A, 'name', 'Robot 1'); %Unir articulaciones
+figure
+Robot1.plot([0 0 0],'workspace', [-300 300 -300 300 -300 300])
+figure
+Robot1.teach
