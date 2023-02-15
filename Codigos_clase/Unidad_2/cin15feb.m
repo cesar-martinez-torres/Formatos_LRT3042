@@ -13,7 +13,6 @@ figure
 Robot1.plot([pi/2 0 4],'workspace', [-10 10 -10 10 -10 10]) %Plotear robot
 figure
 Robot1.teach
-
 c1=[0 0 3]
 cin_dir=Robot1.fkine(c1,'deg')
 O=tr2rpy(cin_dir,'deg')

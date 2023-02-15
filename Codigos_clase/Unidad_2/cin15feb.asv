@@ -1,15 +1,20 @@
 %% Cinematica 15 febrero
 close all
-clear all
-l1=2
-l4=100;
-%([Rotaci�n en z traslaci�n en z traslaci�n en x rotaci�n en x tipo de articulaci�n])
-A(1)= Link([0 l1 0 0 0]); %Generar cada una de las articulaciones 
-A(2)= Link([pi/2 0 0 pi/2 0]);%th,d,a,alpha, tipo art; 0=rot 1=pris
+clear
+l1=5;
+l2=5;
+l3=2;
+A(1)= Link([0 l1 0 -pi/2 0]); %Generar cada una de las articulaciones 
+A(2)= Link([0 0 l2 pi/2 0]);%th,d,a,alpha, tipo art; 0=rot 1=pris
 A(3)= Link([0 0 0 0 1]);
-A(3).qlim = [0 100];
-Robot1= SerialLink(A, 'name', 'Robot 1'); %Unir articulaciones
+A(3).qlim = [3 6];
+Robot1= SerialLink(A, 'name', 'RRP'); %Unir articulaciones
 figure
-Robot1.plot([0 0 0],'workspace', [-300 300 -300 300 -300 300])
+Robot1.plot([pi/2 0 4],'workspace', [-10 10 -10 10 -10 10]) %Plotear robot
 figure
 Robot1.teach
+
+c1=[0 0 3;0 0 4;0 0 5]
+Robot1.plot([pi/2 0 4],'workspace', [-10 10 -10 10 -10 10]) %Plotear robot
+cin_dir=Robot1.fkine(c1,'deg')
+O=tr2rpy(cin_dir,'deg')
