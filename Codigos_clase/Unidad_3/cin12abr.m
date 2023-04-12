@@ -1,9 +1,9 @@
 %% Uso de Jtraj y ctraj
-clear all
+clear
+close all
 mdl_puma560
 figure
 p560.teach
-close all
 figure
 p560.plot3d(qr)
 %% Trayectorias (eje a eje de qz a qr)
@@ -22,14 +22,23 @@ t=[0:1:19]
 t1=[19:1:38]
 tt=[0:1:38]
 figure
-plot(tt,q2)
-hold on
-plot(tt,q3)
+subplot(6,1,1)
 plot(tt,q1)
+subplot(6,1,2)
+plot(tt,q2)
+subplot(6,1,3)
+plot(tt,q3)
+subplot(6,1,4)
 plot(tt,q4)
+subplot(6,1,5)
 plot(tt,q5)
+subplot(6,1,6)
 plot(tt,q6)
 grid on
+Q=[q1' q2' q3' q4' q5' q6']
+figure
+p560.plot3d(Q)
+
 
 
 
