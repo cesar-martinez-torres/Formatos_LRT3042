@@ -24,11 +24,8 @@ rot=rotx(0,'deg')
 mTw=[rot,t;0,0,0,1]
 t=[0,1,1]'
 rot=rotx(0,'deg')
-wTa=[rot,t;0,0,0,1]
-mTa=mTw*wTa
 figure
 trplot(M)
 grid on
 hold on
 trplot(mTw)
-trplot(mTa)
