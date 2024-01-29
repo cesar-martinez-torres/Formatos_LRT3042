@@ -39,7 +39,22 @@ ap3=[-2,0,0]'
 mp1=mTa*ap1
 mp2=mTa*ap2
 mp3=mTa*ap3
-
+% Point 3
+syms xd yd zd
+rx=rotx(xd,'deg')
+ry=roty(yd,'deg')
+rz=rotz(zd,'deg')
+rot=rx*ry*rz
+syms x y 
+t=[x,y,0]
+aTb=SE3(rot,t)
+aTb=simplify(aTb)
+xd=0
+yd=0
+zd=0
+x=-1
+y=1.5
+aTb=eval(aTb.T)
 figure
 trplot(M)
 grid on
@@ -50,4 +65,5 @@ trplot(mTb)
 plot_point3(mp1, 'Marker', 'o', 'Label', 'P1', 'Color', 'b')
 plot_point3(mp2, 'Marker', 'x', 'Label', 'P2', 'Color', 'b')
 plot_point3(mp3, 'Marker', '^', 'Label', 'P3', 'Color', 'b')
+
 
