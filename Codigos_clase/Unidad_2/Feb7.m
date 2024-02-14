@@ -57,3 +57,14 @@ dTe=SE3(r,t)
 %%%%
 aTe=aTb*bTc*cTd*dTe
 aTe=simplify(aTe)
+aTe=aTe.T
+fx=aTe(1,4)
+fy=aTe(2,4)
+fz=aTe(3,4)
+q1=deg2rad(40)
+q2=deg2rad(65)
+q3=deg2rad(30)
+q4=deg2rad(100)
+
+aTe=eval(aTe)
+angles=tr2rpy(aTe,'deg')
