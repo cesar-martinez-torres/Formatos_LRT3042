@@ -15,4 +15,4 @@ rrrP=SerialLink(L,'name','Robot 1')
 rrrP.teach
 figure
 Q=[pi/2 0 pi]
-rrrP.plot(Q)
+rrrP.plot(Q,'deg')
