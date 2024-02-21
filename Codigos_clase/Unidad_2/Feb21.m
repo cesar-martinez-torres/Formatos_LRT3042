@@ -6,7 +6,7 @@ syms q1 q2 q3 q4
 L1=5
 L4=1.5
 aTb=trotz(q1)*transl(0,0,L1)*transl(0,0,0)*trotx(0)
-bTc=trotz(pi/2)*transl(0,0,q2)*transl(0,0,0)*trotx(-pi/2)
+bTc=trotz(pi/2)*transl(0,0,q2)*transl(0,0,0)*trotx(pi/2)
 cTd=trotz(0)*transl(0,0,q3)*transl(0,0,0)*trotx(0)
 dTe=trotz(q4)*transl(0,0,L4)*transl(0,0,0)*trotx(0)
 % step 15
