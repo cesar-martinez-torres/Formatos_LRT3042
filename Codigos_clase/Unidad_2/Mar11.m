@@ -54,3 +54,40 @@ q2_sol1=atan2(a,-b)
 q2_sol2=atan2(-a,b)
 q2_sol1g=rad2deg(q2_sol1)
 q2_sol2g=rad2deg(q2_sol2)
+% para q1=0
+q1n=q1_sol2
+q1=q1n
+ec2q1s2=eval(ec2)
+ec2q1s2=vpa(ec2q1s2)
+a=1.06
+b=1.06
+q2_sol1a=atan2(a,-b)
+q2_sol2a=atan2(-a,b)
+%% Evaluando q3
+q1s1=-pi
+q2s1=-2.3562
+q1=q1s1
+q2=q2s1
+q3_sol=eval(ec3)
+q3_sol=vpa(q3_sol)% La solucion no es util, q3 es negativo
+%%
+q1s1=-pi
+q2s2=0.7854
+q1=q1s1
+q2=q2s2
+q3_sola=eval(ec3)
+q3_sola=vpa(q3_sola) %Solucion util
+%%
+q1s2=0
+q2s1=2.3562
+q1=q1s2
+q2=q2s1
+q3_solb=eval(ec3)
+q3_solb=vpa(q3_solb)
+%%
+q1s2=0
+q2s2=-0.7854
+q1=q1s2
+q2=q2s2
+q3_solc=eval(ec3)
+q3_solc=vpa(q3_solc)
