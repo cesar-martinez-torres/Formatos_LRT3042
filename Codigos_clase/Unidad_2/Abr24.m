@@ -4,7 +4,7 @@ close all
 mdl_puma560
 %p560.teach
 %% qz a qs(ready) (MJ)
-M=100
+M=20
 % BASE
 q1=jtraj(qz(1),qs(1),M)
 %Hombro
@@ -36,8 +36,40 @@ Tesq2=SE3(Tesq1.R,t)
 q=p560.ikine6s(Tesq2)
 C3=ctraj(Tesq1,Tesq2,M)
 Q3=p560.ikine6s(C3)
+%% Movimiento 4 esq2 a esq3 (ML)
+%Calcular Tesq3
+vTesq2=Tesq2.t
+y=vTesq2(2)+0.3
+t=[vTesq2(1) y vTesq2(3)]
+Tesq3=SE3(Tesq2.R,t)
+% Verificar si tiene solucion (alcanzable)
+q=p560.ikine6s(Tesq3)
+C4=ctraj(Tesq2,Tesq3,M)
+Q4=p560.ikine6s(C4)
+%% Movimiento 5 esq3 a esq4 (ML)
+%Calcular Tesq4
+vTesq3=Tesq3.t
+x=vTesq3(1)-0.3
+t=[x vTesq3(2) vTesq3(3)]
+Tesq4=SE3(Tesq3.R,t)
+% Verificar si tiene solucion (alcanzable)
+q=p560.ikine6s(Tesq4)
+C5=ctraj(Tesq3,Tesq4,M)
+Q5=p560.ikine6s(C5)
+%% Movimiento 6 esq4 a esq1 (ML)
+C6=ctraj(Tesq4,Tesq1,M)
+Q6=p560.ikine6s(C6)
+%% Movimiento 7 esq1 a qz (MJ)
+esq1=[0 0 -3.1416 0 0 0]
+q1=jtraj(esq1(1),qz(1),M)
+q2=jtraj(esq1(2),qz(2),M)
+q3=jtraj(esq1(3),qz(3),M)
+q4=jtraj(esq1(4),qz(4),M)
+q5=jtraj(esq1(5),qz(5),M)
+q6=jtraj(esq1(6),qz(6),M)
+Q7=[q1 q2 q3 q4 q5 q6]
 %% Enviar trayectoria
-Qt=[Q1;Q2;Q3]
+Qt=[Q1;Q2;Q3;Q4;Q5;Q6;Q7]
 figure
-p560.plot(Qt)
+p560.plot(Qt,'trail',"-")
 
